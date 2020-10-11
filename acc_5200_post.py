@@ -83,8 +83,15 @@ df.head()
 df.rename(columns= {df.columns[2]: 'GOTCHA'})
 df
 
-
 %whos
+
+# We can return a pandas Series object by referring to one column in the dataframe. There are a few ways to do this shown below. First, we pull the series based on its position. 
+df[df.columns[2]]
+type(df[df.columns[2]])
+# Illustration of .loc where we select all rows with : and then the column. 
+df.loc[:, df.columns[2]]
+# Create the same series using the name of the column. 
+df['sic']
 
 # Now let's take care of the rest of them. I am using a mix of column positions and column names for illustrative purposes.
 df.rename(columns= {df.columns[1]: 'date', 'ticker symbol': 'ticker', df.columns[4]: 'name', df.columns[5]: 'price', 'returns': 'ret', df.columns[7]: 'retx', df.columns[8]: 'sp' }, inplace=True)
